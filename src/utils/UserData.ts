@@ -1,5 +1,8 @@
 export interface UserData {
-  address?: object;
+  address?: {
+    street?: string;
+    city?: string;
+  };
   email?: string;
   gender?: string;
   id?: number;

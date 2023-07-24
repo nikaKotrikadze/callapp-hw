@@ -1,11 +1,11 @@
 import React from "react";
-import DataFetching from "../DataFetching/DataFetching";
-import { useDataStore } from "../../store/dataStore";
+import UserTable from "../UserTable/UserTable";
+
 const Layout = () => {
   return (
     <div>
-      <h1>hahaha Layout</h1>
-      <DataFetching />
+      <h1>User Data</h1>
+      <UserTable />
     </div>
   );
 };
