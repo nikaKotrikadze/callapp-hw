@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import BASE from "../../utils/API";
+import { useDataStore } from "../../store/dataStore";
 
 const DataFetching = () => {
+  const setData = useDataStore((state) => state.setData);
+
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("http://localhost:3333/api/data");
+        const response = await axios.get(`${BASE}/api/data`);
+        setData(response.data);
         console.log("Data received:", response.data);
-        // Do something with the data here
       } catch (error) {
         console.error("Error fetching data:", error);
       }
