@@ -147,21 +147,35 @@ const UserTable = () => {
           <Form.Item
             label="Name"
             name="name"
-            rules={[{ required: true, message: "Please enter name" }]}
+            rules={[
+              { required: true, message: "Please enter name" },
+              { min: 2, message: "Name must be at least 2 characters long" },
+              { max: 50, message: "Name can have a maximum of 50 characters" },
+            ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
             label="Email"
             name="email"
-            rules={[{ required: true, message: "Please enter email" }]}
+            rules={[
+              { required: true, message: "Please enter email" },
+              { type: "email", message: "Invalid email format" },
+            ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
             label="Phone"
             name="phone"
-            rules={[{ required: true, message: "Please enter phone" }]}
+            rules={[
+              { required: true, message: "Please enter phone number" },
+              {
+                pattern: /^\+995\d{9}$/,
+                message:
+                  "Phone number must start with '+995' and have 9 digits after that",
+              },
+            ]}
           >
             <Input />
           </Form.Item>
