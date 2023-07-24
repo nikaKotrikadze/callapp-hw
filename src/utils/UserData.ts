@@ -1,7 +1,7 @@
 export interface UserData {
   address?: {
-    street?: string;
-    city?: string;
+    street: string;
+    city: string;
   };
   email?: string;
   gender?: string;

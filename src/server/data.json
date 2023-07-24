@@ -664,9 +664,31 @@
     "email": "downshatfield@gology.com",
     "gender": "male",
     "address": {
-      "street": "Locust Avenue",
-      "city": "San Diego"
+      "city": "San Diego",
+      "street": "Locust Avenue"
     },
     "phone": "+1 (813) 531-3665"
+  },
+  {
+    "name": "Nikoloz Kotrikadze",
+    "email": "nikakotrikadze12@gmail.com",
+    "phone": "+995597772676",
+    "gender": "male",
+    "address": {
+      "city": "Tbilisi",
+      "street": "Varketili"
+    },
+    "id": 71
+  },
+  {
+    "name": "zuraba nadiradze",
+    "email": "zuraka@gmail.com",
+    "phone": "kliker",
+    "gender": "female",
+    "address": {
+      "city": "abara",
+      "street": "Guro"
+    },
+    "id": 72
   }
 ]
