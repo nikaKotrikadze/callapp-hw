@@ -5,13 +5,11 @@ import { useDataStore } from "../../store/dataStore";
 import { UserData } from "../../utils/UserData";
 const DataFetching = () => {
   const setData = useDataStore((state) => state.setData);
-
   useEffect(() => {
     const getData = async () => {
       try {
         const response = await axios.get<UserData>(`${BASE}/api/data`);
         setData(response.data);
-        console.log("Data received:", response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -19,7 +17,7 @@ const DataFetching = () => {
     getData();
   }, []);
 
-  return <div>DataFetching</div>;
+  return <></>;
 };
 
 export default DataFetching;

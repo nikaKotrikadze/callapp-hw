@@ -32,10 +32,11 @@ app.get("/api/data", (req, res) => {
 app.post("/api/data", (req, res) => {
   const data = readDataFromFile();
   const newData = req.body;
-  newData.id = data.length + 1; // Assuming the ID is auto-incremented
+  const lastItem = data[data.length - 1];
+  newData.id = lastItem ? lastItem.id + 1 : 1;
   data.push(newData);
   writeDataToFile(data);
-  res.json({ message: "Data added successfully", data: newData });
+  res.json(newData);
 });
 
 // API endpoint to update data by ID
@@ -48,7 +49,7 @@ app.put("/api/data/:id", (req, res) => {
   if (index !== -1) {
     data[index] = { ...data[index], ...updatedData };
     writeDataToFile(data);
-    res.json({ message: "Data updated successfully", data: data[index] });
+    res.json({ data: data[index] });
   } else {
     res.status(404).json({ message: "Data not found" });
   }
