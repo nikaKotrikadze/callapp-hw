@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useDataStore } from "../../store/dataStore";
 import { UserData } from "../../utils/UserData";
 import { Table, Button, Modal, Form, Input, Select } from "antd";
-import DataFetching from "../DataFetching/DataFetching";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
 const UserTable = () => {
   const userData = useDataStore((state) => state.data);
+  const sortedUserData = [...userData].sort((a, b) => b.id - a.id);
+
   const addUser = useDataStore((state) => state.addUser);
   const removeUser = useDataStore((state) => state.removeUser);
   const updateUser = useDataStore((state) => state.updateUser);
@@ -15,6 +17,10 @@ const UserTable = () => {
   const [selectedRecord, setSelectedRecord] = useState<UserData | null>(null);
   const [formMode, setFormMode] = useState<"add" | "edit">("add");
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const [form] = Form.useForm();
+
+  const navigate = useNavigate();
   console.log(userData);
 
   const columns = [
@@ -62,8 +68,6 @@ const UserTable = () => {
       ),
     },
   ];
-
-  const sortedUserData = [...userData].sort((a, b) => b.id - a.id);
 
   const handleRemove = (id: number) => {
     console.log(`removed item with id: ${id}`);
@@ -121,11 +125,12 @@ const UserTable = () => {
     });
   };
 
-  const [form] = Form.useForm();
+  const handleShowPieChart = () => {
+    navigate("/city-pie-chart");
+  };
 
   return (
-    <div>
-      <DataFetching />
+    <div style={{ paddingBottom: 50 }}>
       <Button onClick={handleAdd}>Add</Button>
       <Table
         dataSource={sortedUserData}
@@ -205,6 +210,8 @@ const UserTable = () => {
           </Form.Item>
         </Form>
       </Modal>
+      <h1>Show City Pie Chart</h1>
+      <Button onClick={handleShowPieChart}>Show Pie Chart</Button>
     </div>
   );
 };

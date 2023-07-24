@@ -672,7 +672,7 @@
   {
     "name": "Nikoloz Kotrikadze",
     "email": "nikakotrikadze12@gmail.com",
-    "phone": "+995597772676",
+    "phone": "+995597887799",
     "gender": "male",
     "address": {
       "city": "Tbilisi",
@@ -681,13 +681,24 @@
     "id": 71
   },
   {
-    "name": "vaso",
-    "email": "vasovaso123@gmail.com",
-    "phone": "+13332221112",
+    "name": "Vaska",
+    "email": "vasoTheKilla@gmal.com",
+    "phone": "+995568555555",
+    "gender": "male",
+    "address": {
+      "city": "Kuteisi",
+      "street": "Aghmashenebelis qucha"
+    },
+    "id": 72
+  },
+  {
+    "name": "Nikoloz Kotrikadze",
+    "email": "asdf@gmail.com",
+    "phone": "+995597772676",
     "gender": "male",
     "address": {
       "city": "Tbilisi",
-      "street": "Vera"
+      "street": "vera"
     },
     "id": 73
   }
