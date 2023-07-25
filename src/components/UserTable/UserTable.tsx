@@ -115,8 +115,14 @@ const UserTable = () => {
     setSelectedRecord(record);
     setFormMode("edit");
     setIsModalVisible(true);
+
+    const nameParts = record.name?.split(" ");
+    const name = nameParts?.[0] || "";
+    const surname = nameParts?.slice(1).join(" ") || "";
+
     form.setFieldsValue({
-      name: record.name,
+      name,
+      surname,
       email: record.email,
       phone: record.phone,
       gender: record.gender,

@@ -7,5 +7,6 @@ export interface UserData {
   gender?: string;
   id?: number;
   name?: string;
+  surname?: string;
   phone?: string;
 }
