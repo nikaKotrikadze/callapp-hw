@@ -587,10 +587,10 @@
     "email": "mildredalvarado@gology.com",
     "gender": "female",
     "address": {
-      "street": "Thatford Avenue",
-      "city": "San Diego"
+      "city": "San Diego",
+      "street": "Thatford Avenue"
     },
-    "phone": "+1 (941) 567-2861"
+    "phone": "+995597778978"
   },
   {
     "id": 59,
@@ -667,28 +667,17 @@
       "city": "San Diego",
       "street": "Locust Avenue"
     },
-    "phone": "+1 (813) 531-3665"
+    "phone": "+995597778789"
   },
   {
-    "name": "Nikoloz Kotrikadze",
-    "email": "nikakotrikadze12@gmail.com",
-    "phone": "+995597772676",
+    "email": "mockZuraBliadze@gmail.com",
+    "phone": "+995111222333",
     "gender": "male",
+    "name": "Zura Bliadze",
     "address": {
       "city": "Tbilisi",
-      "street": "Varketili"
+      "street": "Vake"
     },
     "id": 71
-  },
-  {
-    "name": "vaso",
-    "email": "vasovaso123@gmail.com",
-    "phone": "+13332221112",
-    "gender": "male",
-    "address": {
-      "city": "Tbilisi",
-      "street": "Vera"
-    },
-    "id": 73
   }
 ]

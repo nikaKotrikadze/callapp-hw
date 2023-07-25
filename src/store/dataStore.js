@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
 import BASE from "../utils/API";
-import { UserData } from "../utils/UserData";
 
 export const useDataStore = create((set) => ({
   data: [].sort((a, b) => b.id - a.id),

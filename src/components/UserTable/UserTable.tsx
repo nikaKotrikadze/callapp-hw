@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { useDataStore } from "../../store/dataStore";
 import { UserData } from "../../utils/UserData";
 import { Table, Button, Modal, Form, Input, Select } from "antd";
-import DataFetching from "../DataFetching/DataFetching";
+import { useNavigate } from "react-router-dom";
 
 const { Option } = Select;
 
 const UserTable = () => {
   const userData = useDataStore((state) => state.data);
+  const sortedUserData = [...userData].sort((a, b) => b.id - a.id);
+
   const addUser = useDataStore((state) => state.addUser);
   const removeUser = useDataStore((state) => state.removeUser);
   const updateUser = useDataStore((state) => state.updateUser);
@@ -15,7 +17,10 @@ const UserTable = () => {
   const [selectedRecord, setSelectedRecord] = useState<UserData | null>(null);
   const [formMode, setFormMode] = useState<"add" | "edit">("add");
   const [isModalVisible, setIsModalVisible] = useState(false);
-  console.log(userData);
+
+  const [form] = Form.useForm();
+
+  const navigate = useNavigate();
 
   const columns = [
     {
@@ -63,10 +68,7 @@ const UserTable = () => {
     },
   ];
 
-  const sortedUserData = [...userData].sort((a, b) => b.id - a.id);
-
   const handleRemove = (id: number) => {
-    console.log(`removed item with id: ${id}`);
     removeUser(id);
   };
 
@@ -86,9 +88,11 @@ const UserTable = () => {
 
   const handleFormSubmit = async (values: any) => {
     try {
-      const { city, street, ...rest } = values;
+      const { city, street, name, surname, ...rest } = values;
+      const fullName = `${name} ${surname}`;
       const updatedData: UserData = {
         ...rest,
+        name: fullName,
         address: {
           city,
           street,
@@ -121,15 +125,20 @@ const UserTable = () => {
     });
   };
 
-  const [form] = Form.useForm();
+  const handleShowPieChart = () => {
+    navigate("/city-pie-chart");
+  };
 
   return (
-    <div>
-      <DataFetching />
+    <div style={{ paddingBottom: 50 }}>
       <Button onClick={handleAdd}>Add</Button>
       <Table
         dataSource={sortedUserData}
+        style={{
+          padding: 50,
+        }}
         columns={columns}
+        rowKey="id"
         onRow={(record: UserData) => {
           return {
             onDoubleClick: () => handleRowDoubleClick(record),
@@ -139,7 +148,7 @@ const UserTable = () => {
 
       <Modal
         title={formMode === "add" ? "Add New User" : "Edit User"}
-        visible={isModalVisible}
+        open={isModalVisible}
         onOk={handleModalOk}
         onCancel={handleModalCancel}
       >
@@ -150,7 +159,21 @@ const UserTable = () => {
             rules={[
               { required: true, message: "Please enter name" },
               { min: 2, message: "Name must be at least 2 characters long" },
-              { max: 50, message: "Name can have a maximum of 50 characters" },
+              { max: 20, message: "Name can have a maximum of 20 characters" },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Surname"
+            name="surname"
+            rules={[
+              { required: true, message: "Please enter surname" },
+              { min: 2, message: "Surname must be at least 2 characters long" },
+              {
+                max: 20,
+                message: "Surname can have a maximum of 20 characters",
+              },
             ]}
           >
             <Input />
@@ -192,19 +215,35 @@ const UserTable = () => {
           <Form.Item
             label="City"
             name="city"
-            rules={[{ required: true, message: "Please enter your City" }]}
+            rules={[
+              { required: true, message: "Please enter your City" },
+              { min: 2, message: "City must be at least 2 characters long" },
+              {
+                max: 20,
+                message: "City can have a maximum of 20 characters",
+              },
+            ]}
           >
             <Input />
           </Form.Item>
           <Form.Item
             label="Street"
             name="street"
-            rules={[{ required: true, message: "Please enter your Street" }]}
+            rules={[
+              { required: true, message: "Please enter your Street" },
+              { min: 2, message: "Street must be at least 2 characters long" },
+              {
+                max: 40,
+                message: "Street can have a maximum of 40 characters",
+              },
+            ]}
           >
             <Input />
           </Form.Item>
         </Form>
       </Modal>
+      <h1>Show City Pie Chart</h1>
+      <Button onClick={handleShowPieChart}>Go To Pie Chart</Button>
     </div>
   );
 };

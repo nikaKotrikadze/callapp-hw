@@ -1,9 +1,9 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const cors = require("cors"); // Import the cors package
+const cors = require("cors");
 const app = express();
-const PORT = 3333; // You can use any desired port number
+const PORT = 3333;
 
 // Middleware to parse JSON data from the request body
 app.use(express.json());

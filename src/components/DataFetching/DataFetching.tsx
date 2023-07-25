@@ -3,6 +3,7 @@ import axios from "axios";
 import BASE from "../../utils/API";
 import { useDataStore } from "../../store/dataStore";
 import { UserData } from "../../utils/UserData";
+
 const DataFetching = () => {
   const setData = useDataStore((state) => state.setData);
   useEffect(() => {
@@ -17,7 +18,7 @@ const DataFetching = () => {
     getData();
   }, []);
 
-  return <></>;
+  return null;
 };
 
 export default DataFetching;
