@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Layout from "./components/Layout/Layout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CityPieChart from "./components/CityPieChart/CityPieChart";
+import DataFetching from "./components/DataFetching/DataFetching";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DataFetching />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />} />
+          <Route path="/city-pie-chart" element={<CityPieChart />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
