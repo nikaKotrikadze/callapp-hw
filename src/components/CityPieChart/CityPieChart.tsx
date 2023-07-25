@@ -1,5 +1,3 @@
-// CityPieChart.js
-
 import React from "react";
 import { Pie } from "@ant-design/charts";
 import { Button } from "antd";
@@ -25,11 +23,11 @@ const CityPieChart = () => {
   }));
 
   const config = {
-    appendPadding: 10,
+    appendPadding: 50,
     data: cityChartData,
     angleField: "count",
     colorField: "city",
-    radius: 0.8,
+    radius: 1,
     label: {
       type: "inner",
       offset: "-30%",
@@ -46,9 +44,21 @@ const CityPieChart = () => {
   };
 
   return (
-    <div>
-      <Button onClick={handleGoHome}>Go back to Home</Button>
-      <Pie {...config} />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "space-evenly",
+      }}
+    >
+      <div style={{ height: 600, width: 600 }}>
+        <h1> City Pie Chart </h1>
+        <Pie {...config} />
+        <Button onClick={handleGoHome} style={{}}>
+          Go back to the Table
+        </Button>
+      </div>
     </div>
   );
 };
