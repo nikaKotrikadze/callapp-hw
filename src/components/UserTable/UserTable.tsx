@@ -3,6 +3,7 @@ import { useDataStore } from "../../store/dataStore";
 import { UserData } from "../../utils/UserData";
 import { Table, Button, Modal, Form, Input, Select } from "antd";
 import { useNavigate } from "react-router-dom";
+import { FormValues } from "../../utils/FormValues";
 
 const { Option } = Select;
 
@@ -86,7 +87,7 @@ const UserTable = () => {
     setIsModalVisible(false);
   };
 
-  const handleFormSubmit = async (values: any) => {
+  const handleFormSubmit = async (values: FormValues) => {
     try {
       const { city, street, name, surname, ...rest } = values;
       const fullName = `${name} ${surname}`;

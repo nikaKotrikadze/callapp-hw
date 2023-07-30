@@ -3,12 +3,14 @@ import { Pie } from "@ant-design/charts";
 import { Button } from "antd";
 import { useNavigate } from "react-router";
 import { useDataStore } from "../../store/dataStore";
+import { UserData } from "../../utils/UserData";
+import { CityData } from "../../utils/CityData";
 
 const CityPieChart = () => {
   const navigate = useNavigate();
   const data = useDataStore((state) => state.data);
 
-  const cityData = data.reduce((acc: any, curr: any) => {
+  const cityData = data.reduce((acc: CityData, curr: UserData) => {
     const city = curr.address?.city;
     if (city) {
       acc[city] = (acc[city] || 0) + 1;
