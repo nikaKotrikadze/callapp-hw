@@ -670,58 +670,25 @@
     "phone": "+995597778789"
   },
   {
-    "email": "mockZuraBliadze@gmail.com",
-    "phone": "+995111222333",
+    "email": "mockJohnDoeEmail@gmail.com",
+    "phone": "+995789789789",
     "gender": "male",
-    "name": "Zura Bliadze",
+    "name": "john doe",
     "address": {
-      "city": "Tbilisi",
-      "street": "Vake"
+      "city": "New York",
+      "street": "Bronx"
     },
     "id": 71
   },
   {
-    "email": "asdf@gmail.com",
-    "phone": "+995597772676",
+    "email": "bupoe@gmail.com",
+    "phone": "+995111222333",
     "gender": "male",
-    "name": "wassup Bliadze",
-    "address": {
-      "city": "nana",
-      "street": "nana"
-    },
-    "id": 72
-  },
-  {
-    "email": "nikakotrikadze12@gmail.com",
-    "phone": "+995597772676",
-    "gender": "male",
-    "name": "wassup Kotrikadze",
+    "name": "zura blick",
     "address": {
       "city": "Tbilisi",
-      "street": "nana"
+      "street": "Vake"
     },
-    "id": 73
-  },
-  {
-    "email": "nikakotrikadze12@gmail.com",
-    "phone": "+995597772676",
-    "gender": "female",
-    "name": "wassup medzma",
-    "address": {
-      "city": "nana",
-      "street": "Varketili"
-    },
-    "id": 74
-  },
-  {
-    "email": "lalaland@gmail.com",
-    "phone": "+995789789789",
-    "gender": "female",
-    "name": "Lala Land",
-    "address": {
-      "city": "tbi",
-      "street": "lisi"
-    },
-    "id": 75
+    "id": 72
   }
 ]

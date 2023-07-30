@@ -118,11 +118,11 @@ const UserTable = () => {
 
     const nameParts = record.name?.split(" ");
     const name = nameParts?.[0] || "";
-    const surname = nameParts?.slice(1).join(" ") || "";
+    const surname = nameParts?.[1] || "";
 
     form.setFieldsValue({
-      name,
-      surname,
+      name: name,
+      surname: surname,
       email: record.email,
       phone: record.phone,
       gender: record.gender,

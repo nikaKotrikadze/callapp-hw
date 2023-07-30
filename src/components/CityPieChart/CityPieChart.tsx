@@ -15,7 +15,6 @@ const CityPieChart = () => {
     }
     return acc;
   }, {});
-
   // Converting cityData object into an array (of objects)
   const cityChartData = Object.entries(cityData).map(([city, count]) => ({
     city,
@@ -55,9 +54,7 @@ const CityPieChart = () => {
       <div style={{ height: 600, width: 600 }}>
         <h1> City Pie Chart </h1>
         <Pie {...config} />
-        <Button onClick={handleGoHome} style={{}}>
-          Go back to the Table
-        </Button>
+        <Button onClick={handleGoHome}>Go back to the Table</Button>
       </div>
     </div>
   );

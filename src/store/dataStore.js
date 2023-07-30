@@ -3,7 +3,7 @@ import axios from "axios";
 import BASE from "../utils/API";
 
 export const useDataStore = create((set) => ({
-  data: [].sort((a, b) => b.id - a.id),
+  data: [],
   setData: (userData) => set({ data: userData }),
   addUser: async (user) => {
     try {
